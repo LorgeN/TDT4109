@@ -57,13 +57,13 @@ def attempt_guess(char: str) -> bool:
     if correct:
         for val in state_list:
             if not val:
-                print("Korrekt! Bokstaven", char, " er i ordet!")
+                print(f"Korrekt! Bokstaven {char} er i ordet!")
                 print_word()
                 return True
         print("Gratulerer! Du har greid å gjette hele ordet!")
         return False
 
-    print("Feil! Bokstaven", char, "er ikke i ordet!")
+    print(f"Feil! Bokstaven {char} er ikke i ordet!")
     return fail_guess()
 
 
@@ -72,7 +72,7 @@ def fail_guess() -> bool:
     life_count -= 1
     if life_count == 0:
         print("Du har brukt opp livene dine!")
-        print("Riktig ord var", secret)
+        print(f"Riktig ord var {secret}")
         return False
 
     print("Du har", life_count, "liv igjen")
