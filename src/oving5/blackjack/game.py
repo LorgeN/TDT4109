@@ -245,11 +245,11 @@ class BlackjackRound:
         if hand.is_bust():
             return BlackjackOutcome.LOSS
 
-        if self.dealer_hand.is_bust():
-            return BlackjackOutcome.WIN
-
         if hand.is_blackjack():
             return BlackjackOutcome.BLACKJACK if not self.dealer_hand.is_blackjack() else BlackjackOutcome.PUSH
+
+        if self.dealer_hand.is_bust():
+            return BlackjackOutcome.WIN
 
         if self.dealer_hand.is_blackjack():
             return BlackjackOutcome.LOSS
