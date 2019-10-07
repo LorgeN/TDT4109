@@ -30,7 +30,7 @@ class OpinionQuestion(Response):
         return responses.has_response(self.depend)
 
 
-NAME_QUESTION = FixedQuestion(UserData.NAME, "Hva heter du?")
+NAME_QUESTION = FixedQuestion(UserData.NAME, "Hva heter du")
 QUESTIONS = [
     # Questions for fixed data
     FixedQuestion(UserData.AGE, "Hvor gammel er du"),
