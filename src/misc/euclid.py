@@ -39,7 +39,8 @@ def compute_print(a: int, m: int):
     print(f"gcd({a_in}, {m_in}) = {parts_found[len(parts_found) - 1].quotient}")
 
 
-a_in = int(input("a = "))
-m_in = int(input("m = "))
+if __name__ == '__main__':
+    a_in = int(input("a = "))
+    m_in = int(input("m = "))
 
-compute_print(a_in, m_in)
+    compute_print(a_in, m_in)
