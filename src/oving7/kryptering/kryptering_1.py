@@ -1,5 +1,6 @@
 import binascii
-import uuid
+import random
+import string
 
 
 def to_hex(word):
@@ -24,7 +25,7 @@ def decrypt(encrypted, key):
 
 def main():
     msg = input("Message: ")
-    key = str(uuid.uuid1())
+    key = ''.join(random.choice(string.ascii_lowercase) for x in range(len(msg)))
     print(f"Using key {key}")
 
     encrypted = encrypt(msg, key)
