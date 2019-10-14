@@ -1,0 +1,1 @@
+from strengmanipulasjon.strengmanipulasjon_1 import find_substring_indexes
