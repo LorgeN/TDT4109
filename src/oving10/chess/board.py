@@ -510,7 +510,7 @@ def new_game():
             board.draw_pieces()
             game.display.flip()
 
-            messagebox.showinfo("Checkmate!", f"{turn.other.name} loses")
+            messagebox.showinfo("Checkmate!", f"{turn.other.name} wins")
             break
 
         for event in game.event.get():
