@@ -503,15 +503,18 @@ def new_game():
     mouse_released = False
     legal_moves = None
     show_check = False
+    changed = False
 
     while True:
-        if board.is_checkmate(turn):
-            board.draw_board([GRAY, VIOLET], legal_moves)
-            board.draw_pieces()
-            game.display.flip()
+        if changed:
+            changed = False
+            if board.is_checkmate(turn):
+                board.draw_board([GRAY, VIOLET], legal_moves)
+                board.draw_pieces()
+                game.display.flip()
 
-            messagebox.showinfo("Checkmate!", f"{turn.other.name} wins")
-            break
+                messagebox.showinfo("Checkmate!", f"{turn.other.name} wins")
+                break
 
         for event in game.event.get():
             if event.type == game.QUIT:
@@ -539,6 +542,7 @@ def new_game():
             if grid_pos in legal_moves:
                 board.set_piece(grid_pos.x, grid_pos.y, target_piece)
                 turn = turn.other
+                changed = True
 
                 if target_piece.piece_type == PieceType.PAWN:
                     # Can't move backwards, no need for color check
@@ -549,6 +553,8 @@ def new_game():
                     show_check = True
             else:
                 target_piece.reset()
+                changed = True
+
             target_piece = None
             legal_moves = None
 
